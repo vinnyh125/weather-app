@@ -10,15 +10,47 @@ let conditionImage = data["current"]["condition"]["icon"];
 let tempCel = data["current"]["temp_c"];
 let tempFahr = data["current"]["temp_f"];
 
+function Location() {
+  return (
+    <div id="location">
+      {cityName}, {countryName}
+    </div>
+  );
+}
+
+function Conditions() {
+  return (
+    <div id="conditions">
+      {conditionText}
+    </div>
+  );
+}
+
+function ConditionsImage() {
+  return (
+    <div id="conditions-image">
+      <img src={conditionImage} alt={conditionText}></img>
+    </div>
+  );
+}
+
+function Temperature() {
+  return (
+    <div id="temperature">
+      Celsius: {tempCel}°C, Fahrenheit: {tempFahr}°F
+    </div>
+  );
+}
+
 export default function Weather() {
   return (
     <>
       <div id="app-background">
         <div id="weather-content">
-          {cityName}, {countryName}<br /> 
-          {conditionText}<br />
-          <img src={conditionImage} alt={conditionText}></img><br />
-          Celsius: {tempCel}°C, Fahrenheit: {tempFahr}°F
+          <Location />
+          <Conditions />
+          <ConditionsImage />
+          <Temperature />
         </div>
       </div>
     </>
