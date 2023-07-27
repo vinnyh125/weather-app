@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useEffect } from "react";
 
 let response = await fetch("https://api.weatherapi.com/v1/current.json?key=6d92a427f5fa4b5588c44957232507&q=Fuzhou&aqi=no");
 let data = await response.json();
@@ -9,6 +10,13 @@ let conditionText = data["current"]["condition"]["text"];
 let conditionImage = data["current"]["condition"]["icon"];
 let tempCel = data["current"]["temp_c"];
 let tempFahr = data["current"]["temp_f"];
+
+function Search() {
+  return (
+    <input type="text" id="search-bar">
+    </input>
+  );
+}
 
 function Location() {
   return (
@@ -46,6 +54,7 @@ export default function Weather() {
   return (
     <>
       <div id="app-background">
+        <Search />
         <div id="weather-content">
           <Location />
           <Conditions />
