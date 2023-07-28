@@ -1,5 +1,4 @@
 import './App.css';
-import React, { useEffect } from "react";
 
 let response = await fetch("https://api.weatherapi.com/v1/current.json?key=6d92a427f5fa4b5588c44957232507&q=Fuzhou&aqi=no");
 let data = await response.json();
